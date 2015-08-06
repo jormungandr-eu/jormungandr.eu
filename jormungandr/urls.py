@@ -23,5 +23,5 @@ urlpatterns = [
 	url(r'^neige-outside/([0-9]{4})/$', views.year_archive),
 	url(r'^neige-outside/([0-9]{4})/([0-9]{2})/$', views.month_archive),
 	url(r'^neige-outside/([0-9]{4})/([0-9]{2})/([0-9]+)/$', views.article_detail),
-	url(r'^neige-outside/([a-zA-Z0-9_.-]+)/$', views.post_view),
+	url(r'^neige-outside/post/([a-zA-Z0-9_.-]+)/$', views.post_view),
 ]
