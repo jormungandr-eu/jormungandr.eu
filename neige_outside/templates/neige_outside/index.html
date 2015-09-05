@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'neige_outside/index.css' %}" />
+
+    <title>Neige Outside</title>
+</head>
+<body>
+
+{% if disp_hello %}
+<h1>
+    Neige Outside
+</h1>
+
+<div>
+    <p>In Arbeit</p>
+    <p>En construction</p>
+    <p>Work in progress</p>
+    <p>Lavoro in corso</p>
+    <p>진행중인 작업</p>
+    <p>進行中の作業</p>
+    <p>Arbejde der er i gang</p>
+</div>
+{% endif %}
+
+</body>
+</html>
