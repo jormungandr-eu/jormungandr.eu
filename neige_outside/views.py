@@ -1,29 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-# Create your views here.
-
-
-def home(request):
-    html = "<html><body>It is now.</body></html>"
-    return HttpResponse(html)
+from django.template import RequestContext, loader
 
 
-def year_archive(request, year="2015"):
-    html = "<html><body>Works.</body></html>"
-    return HttpResponse(html)
+def index(request):
+    """Index page"""
+    disp_hello = 1
 
+    """Template loading"""
+    template = loader.get_template('neige_outside/index.html')
 
-def month_archive(request, year="2015", month="01"):
-    html = "<html><body>Works, too.</body></html>"
-    return HttpResponse(html)
+    """Template filling"""
+    context = RequestContext(request, {
+        'disp_hello': disp_hello, })
 
+    """Computed HTML response"""
+    return HttpResponse(template.render(context))
 
-def article_detail(request, year="2015", month="01", day="01"):
-    html = "<html><body>Yup, still works.</body></html>"
-    return HttpResponse(html)
-
-
-def post_view(request, data=""):
-    html = "<html><body>%s</body></html>" % data
-    return HttpResponse(html)

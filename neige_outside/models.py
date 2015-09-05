@@ -11,3 +11,6 @@ class Post(models.Model):
     url_en = models.CharField(max_length=200)
 
     pub_date = models.DateTimeField('date published')
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.title_en

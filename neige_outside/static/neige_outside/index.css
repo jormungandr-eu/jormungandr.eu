@@ -1,0 +1,24 @@
+body {
+    background-color: #777779;
+}
+
+h1 {
+    text-align : center;
+    color : #DEDDDD;
+    font-family : helvetica;
+    font-size : 500%;
+    vertical-align : middle;
+    line-height : normal;
+}
+
+div {
+    text-align : center;
+}
+
+p {
+    color : #CDCCCC;
+    font-family : helvetica;
+    font-size : 200%;
+    vertical-align : middle;
+    line-height : normal;
+}
