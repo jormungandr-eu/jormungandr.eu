@@ -1,19 +1,43 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
+from .models import Post
 
 
 def index(request):
     """Index page"""
-    disp_hello = 1
+
+    """Template loading"""
+    template = loader.get_template('jormungandr_index.html')
+
+    """Computed HTML response"""
+    return HttpResponse(template.render())
+
+
+def neige_outside(request):
+    """The blog part"""
 
     """Template loading"""
     template = loader.get_template('neige_outside/index.html')
 
     """Template filling"""
+    latest_posts = Post.objects.order_by('-pub_date')[:5]
     context = RequestContext(request, {
-        'disp_hello': disp_hello, })
+        'latest_posts': latest_posts, })
 
     """Computed HTML response"""
     return HttpResponse(template.render(context))
 
+
+def posts(request, post_id):
+    """Blogs's individual posts"""
+
+    """Template loading"""
+    template = loader.get_template('neige_outside/post.html')
+
+    """Template filling"""
+    post = Post.objects.filter(id=post_id)[0]
+    context = RequestContext(request, {
+        'post': post, })
+
+    return HttpResponse(template.render(context))

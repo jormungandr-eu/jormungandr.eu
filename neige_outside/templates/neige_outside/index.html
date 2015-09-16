@@ -10,19 +10,16 @@
 </head>
 <body>
 
-{% if disp_hello %}
-<h1>
-    Neige Outside
-</h1>
-
+{% if latest_posts %}
+<ul class="list">
+    {% for post in latest_posts %}
+    <li class="list_elem"><a href="/neige-outside/{{ post.id }}/">{{ post.title }}</a><p>{{ post.preview }}</p></li>
+    {% endfor %}
+</ul>
+{% else %}
+<h1>Nothing here</h1>
 <div>
-    <p>In Arbeit</p>
-    <p>En construction</p>
-    <p>Work in progress</p>
-    <p>Lavoro in corso</p>
-    <p>진행중인 작업</p>
-    <p>進行中の作業</p>
-    <p>Arbejde der er i gang</p>
+    <p>... for now</p>
 </div>
 {% endif %}
 

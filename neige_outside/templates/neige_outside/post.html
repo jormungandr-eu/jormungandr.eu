@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'neige_outside/post.css' %}" />
+
+    <title>{{ post.title }}</title>
+</head>
+<body>
+
+<h1>{{ post.title }}</h1>
+<p>{{ post.text }}</p>
+<p>{{ post.pub_date }}</p>
+
+</body>
+</html>
