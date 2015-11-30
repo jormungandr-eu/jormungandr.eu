@@ -4,6 +4,15 @@ from django.template import RequestContext, loader
 from .models import Post
 
 
+def error_404(request):
+    """404 page"""
+
+    """Template loading"""
+    template = loader.get_template('404.html')
+
+    return HttpResponse(template.render())
+
+
 def index(request):
     """Index page"""
 
@@ -36,8 +45,11 @@ def posts(request, post_id):
     template = loader.get_template('neige_outside/post.html')
 
     """Template filling"""
-    post = Post.objects.filter(id=post_id)[0]
-    context = RequestContext(request, {
-        'post': post, })
+    post = Post.objects.filter(id=post_id)
+    if post:
+        context = RequestContext(request, {
+            'post': post[0], })
+    else:
+        return error_404(request)
 
     return HttpResponse(template.render(context))
