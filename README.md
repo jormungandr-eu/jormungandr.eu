@@ -1,8 +1,5 @@
 # jormungandr.eu
 
-[![ptal on Travis CI][travis-image]][travis]
+jormungandr.eu is a CV/blog site for Neige Cornera and myself.
 
-[travis-image]: https://travis-ci.org/jormungandr-eu/jormungandr.eu.png
-[travis]: https://travis-ci.org/jormungandr-eu/jormungandr.eu
-
-Our beloved website
+Config files are missing from this repo for security reasons.

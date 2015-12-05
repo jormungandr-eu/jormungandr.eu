@@ -1,7 +1,12 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
+from django.contrib.auth import authenticate, login, logout
 from .models import Post
+from django.shortcuts import render_to_response
+from django.template.context_processors import csrf
+
+
+csrf_token = {}
 
 
 def error_404(request):
@@ -53,3 +58,45 @@ def posts(request, post_id):
         return error_404(request)
 
     return HttpResponse(template.render(context))
+
+
+def new(request):
+    """New post page"""
+
+    csrf_token.update(csrf(request))
+    if request.user.is_authenticated():
+        template = loader.get_template('neige_outside/new_post.html')
+        return HttpResponse(template.render())
+
+    return login_view(request)
+
+
+def login_view(request):
+    """Login page"""
+
+    csrf_token.update(csrf(request))
+
+    return render_to_response('neige_outside/login_view.html', csrf_token)
+
+
+def login(request):
+    """Login"""
+
+    username = request.POST['username']
+    password = request.POST['password']
+
+    user = authenticate(username=username, password=password)
+
+    if user is not None:
+        login(request, user)
+        return neige_outside(request)
+
+    return HttpResponse("login failed")
+
+
+def logout_view(request):
+    """Logout"""
+
+    logout(request)
+    return index(request)
+

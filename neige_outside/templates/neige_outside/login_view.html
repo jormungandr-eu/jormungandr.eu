@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<form method="post" action="/neige-outside/login/">
+    {% csrf_token %}
+    <input type="text" id="username" placeholder="username" name="username">
+    <input type="password" id="password" placeholder="password" name="password">
+    <input type="submit" value="login" />
+</form>
+
+</body>
+</html>
