@@ -3,6 +3,8 @@ body {
 }
 
 h1 {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
     background-color: aliceblue;
     color: #777779;
     text-align: center;
@@ -21,3 +23,11 @@ p {
     font-family: "Lucinda Grande", "Lucinda Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
 }
 
+nav, a {
+    font-family: "Lucinda Grande", "Lucinda Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+    color: aliceblue;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    font-size: 125%;
+}

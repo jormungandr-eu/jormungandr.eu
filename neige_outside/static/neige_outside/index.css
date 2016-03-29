@@ -40,6 +40,8 @@ li a {
 }
 
 .list_elem {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
     padding: 5%;
     margin: 5%;
     background-color: aliceblue;
@@ -47,4 +49,10 @@ li a {
 
 .list_elem a, p {
     color: #777779;
+}
+
+nav {
+    position: fixed;
+    right: 10px;
+    top: 10px;
 }

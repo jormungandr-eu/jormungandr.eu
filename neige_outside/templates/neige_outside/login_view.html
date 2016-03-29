@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'neige_outside/login.css' %}" />
+
+    <title>Login</title>
 </head>
 <body>
 
-<form method="post" action="/neige-outside/login/">
-    {% csrf_token %}
-    <input type="text" id="username" placeholder="username" name="username">
-    <input type="password" id="password" placeholder="password" name="password">
-    <input type="submit" value="login" />
+<h1>Login</h1>
+
+<nav>
+    <form method="post" action="/neige-outside/login/"> {% csrf_token %}
+        <input type="text" id="username" placeholder="username" name="username"> </br>
+        <input type="password" id="password" placeholder="password" name="password"> </br>
+        <input type="submit" value="login" id="submit" name="submit"/> </br>
+    </form>
+</nav>
+
+<form method="post" action="/neige_outside/login/">
+    <input type="hidden" id="csrfmiddlewaretoken" name="csrfmiddlewaretoken">
 </form>
 
 </body>

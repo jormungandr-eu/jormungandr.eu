@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'neige_outside/login.css' %}" />
+
+    <title>Login</title>
 </head>
 <body>
 
 <h1>Already logged in</h1>
-<p>Click <a href="/neige-outside/logout/">here</a> to logout.</p>
+<p>Click <a href="/neige-outside/logout/">here</a> to logout</p>
+<p><a href="/neige-outside/">Home</a></p>
 
 </body>
 </html>

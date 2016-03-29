@@ -10,6 +10,12 @@
 </head>
 <body>
 
+{% if is_auth == True %}
+<nav><a href="/neige-outside/logout/">logout</a></nav>
+{% else %}
+<nav><a href="/neige-outside/login/">login</a></nav>
+{% endif %}
+
 {% if latest_posts %}
 <ul class="list">
     {% for post in latest_posts %}
