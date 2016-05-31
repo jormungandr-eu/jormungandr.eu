@@ -29,5 +29,21 @@
 </div>
 {% endif %}
 
+{% if min != 0 %}
+<index><a href="/neige-outside/">index</a></index>
+{% endif %}
+
+{% if min > 4 %}
+<prev><a href="/neige-outside/{{ next_min }}-{{ min }}/">newer posts</a></prev>
+{% else %}
+{% if min > 0 %}
+<prev><a href="/neige-outside/">newer posts</a></prev>
+{% endif %}
+{% endif %}
+
+{% if list_index < list_size%}
+<next><a href="/neige-outside/{{ max }}-{{ next_max }}/">older posts</a></next>
+{% endif %}
+
 </body>
 </html>

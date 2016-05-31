@@ -56,3 +56,22 @@ nav {
     right: 10px;
     top: 10px;
 }
+
+next {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+prev {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+}
+
+index {
+    position: fixed;
+    left: 50%;
+    right: 50%;
+    bottom: 10px;
+}

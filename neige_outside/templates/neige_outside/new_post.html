@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'neige_outside/new_post.css' %}" />
+
+    <title>New post</title>
 </head>
 <body>
+
+{% if is_auth == True %}
+<nav><a href="/neige-outside/logout/">logout</a></nav>
+{% else %}
+<nav><a href="/neige-outside/login/">login</a></nav>
+{% endif %}
+
+<form method="post" action="/neige-outside/new/"> {% csrf_token %}
+    <h1><input type="text" id="title" placeholder="Post title" name="title"></h1>
+    <p><input type="text" id="content" placeholder="Lorem ipsum" name="content"></p>
+    <p><input type="submit" value="Save Post" id="submit" name="submit"/></p>
+</form>
 
 </body>
 </html>
