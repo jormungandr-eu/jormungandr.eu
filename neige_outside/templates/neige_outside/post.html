@@ -12,6 +12,7 @@
 
 {% if is_auth == True %}
 <nav><a href="/neige-outside/logout/">logout</a></nav>
+<delete><a href="/neige-outside/delete/{{ post.id }}">delete post</a></delete>
 {% else %}
 <nav><a href="/neige-outside/login/">login</a></nav>
 {% endif %}

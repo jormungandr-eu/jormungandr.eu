@@ -21,6 +21,8 @@ from neige_outside import views
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^neige-outside/new/$', views.new),
+    url(r'^neige-outside/delete/$', views.delete),
+    url(r'^neige-outside/delete/(?P<post_id>[0-9]+)/$', views.delete_view),
     url(r'^neige-outside/$', views.neige_outside),
     url(r'^neige-outside/(?P<post_id>[0-9]+)/$', views.posts),
     url(r'^neige-outside/(?P<list_min>[0-9]+)-(?P<list_max>[0-9]+)/$', views.neige_outside),

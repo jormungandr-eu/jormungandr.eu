@@ -36,8 +36,6 @@ def neige_outside(request, list_min=0, list_max=4):
     """Template filling"""
     next_min = int(list_min) - 4;
     next_max = int(list_max) + 4;
-    print "next_min:" + str(next_min)
-    print "next_max:" + str(next_max)
     latest_posts = Post.objects.order_by("-pub_date")[list_min:list_max]
     context = RequestContext(request, {
         "latest_posts": latest_posts,
@@ -90,6 +88,38 @@ def new(request):
 
     template = loader.get_template("neige_outside/new_post.html")
     return HttpResponse(template.render(context))
+
+
+def delete_view(request, post_id):
+    """Deletes a post"""
+
+    if not request.user.is_authenticated():
+        return redirect("neige_outside.views.login_view")
+
+    post_list = Post.objects.filter(id=post_id)
+    context = RequestContext(request, {
+        "post": post_list[0], })
+    template = loader.get_template("neige_outside/delete_post.html")
+    return HttpResponse(template.render(context))
+
+
+def delete(request):
+    """Delete system"""
+
+    if not request.user.is_authenticated():
+        return redirect("neige_outside.views.login_view")
+
+    if request.method == "POST":
+        answer = request.POST["submit"]
+        removed_id = request.POST["ID"]
+
+        if answer == "YES":
+            post = Post.objects.filter(id=removed_id)
+            post[0].delete()
+        else:
+            return redirect("neige_outside.views.posts", removed_id)
+
+    return redirect("neige_outside.views.neige_outside")
 
 
 def login_view(request):
